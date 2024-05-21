@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FBA18599-DE5A-4D3D-BAC1-D9608C975984}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RassleWar", "src\RassleWar\RassleWar.csproj", "{2F5F33D4-7254-444E-82BD-B6A4904E1A4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{1E335DC1-32C8-4EF2-B396-1CC37C450CC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RassleWar.Tests", "tests\RassleWar.Tests\RassleWar.Tests.csproj", "{EACC7E10-F65F-4C57-ABD9-343EE2ECB3E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F5F33D4-7254-444E-82BD-B6A4904E1A4F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5F33D4-7254-444E-82BD-B6A4904E1A4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5F33D4-7254-444E-82BD-B6A4904E1A4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5F33D4-7254-444E-82BD-B6A4904E1A4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EACC7E10-F65F-4C57-ABD9-343EE2ECB3E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EACC7E10-F65F-4C57-ABD9-343EE2ECB3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EACC7E10-F65F-4C57-ABD9-343EE2ECB3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EACC7E10-F65F-4C57-ABD9-343EE2ECB3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2F5F33D4-7254-444E-82BD-B6A4904E1A4F} = {FBA18599-DE5A-4D3D-BAC1-D9608C975984}
+		{EACC7E10-F65F-4C57-ABD9-343EE2ECB3E6} = {1E335DC1-32C8-4EF2-B396-1CC37C450CC8}
+	EndGlobalSection
+EndGlobal

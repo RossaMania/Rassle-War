@@ -4,9 +4,39 @@ namespace RassleWar
 {
     public class RassleGame
     {
-        public string StartGame()
+        public string ProcessStartGameResponse(string response)
         {
-            return "The game has started!";
+            response = response.ToUpper();
+
+            if (response == "Y")
+            {
+                return "Ding! Ding! Ding! The match is underway!";
+            }
+            else if (response == "N")
+            {
+                return "To beat the man, you have to have the eye of the tiger! Train hard, take your vitamins, and then come back!";
+            }
+            else
+            {
+                return "Keep it clean! Invalid input! Please enter a Y or N!";
+            }
+        }
+
+        public void StartGame()
+        {
+            while (true)
+            {
+                Console.WriteLine("Are you ready to step in the ring? (Y/N)");
+                string response = Console.ReadLine() ?? string.Empty;
+
+                string output = ProcessStartGameResponse(response ?? string.Empty);
+                Console.WriteLine(output);
+
+                if (string.Equals(response, "Y", StringComparison.OrdinalIgnoreCase) || string.Equals(response, "N", StringComparison.OrdinalIgnoreCase))
+                {
+                    break;
+                }
+            }
         }
     }
 }

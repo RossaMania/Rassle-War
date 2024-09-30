@@ -22,6 +22,11 @@ namespace RassleWar
             }
         }
 
+        public void RasslingMatch()
+        {
+            Console.WriteLine("And the unstoppable force faces the immovable object!");
+        }
+
         public void StartGame()
         {
             while (true)
@@ -32,8 +37,14 @@ namespace RassleWar
                 string output = ProcessStartGameResponse(response ?? string.Empty);
                 Console.WriteLine(output);
 
-                if (string.Equals(response, "Y", StringComparison.OrdinalIgnoreCase) || string.Equals(response, "N", StringComparison.OrdinalIgnoreCase))
+                if (string.Equals(response, "Y", StringComparison.OrdinalIgnoreCase))
                 {
+                    RasslingMatch();
+                }
+
+                if (string.Equals(response, "N", StringComparison.OrdinalIgnoreCase))
+                {
+                    Console.WriteLine("Leaving the arena...");
                     break;
                 }
             }

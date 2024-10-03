@@ -4,6 +4,14 @@ namespace RassleWar
 {
     public class RassleGame
     {
+        int playerHealth = 100;
+
+        int opponentHealth = 100;
+
+        int playerAttackDamage;
+        int opponentAttackDamage;
+
+
         public string ProcessStartGameResponse(string response)
         {
             response = response.ToUpper();
@@ -36,11 +44,13 @@ namespace RassleWar
             if (playerChoice == 1)
             {
                 Console.WriteLine("The two wrestlers lock up in the center of the ring!");
+
                 BothStandingGrappling();
             }
             else if (playerChoice == 2)
             {
                 Console.WriteLine("The player slaps the opponent across the face!");
+                PerformAttacks();
                 BothStandingNeutral();
             }
             else if (playerChoice == 3)
@@ -52,7 +62,6 @@ namespace RassleWar
 
         public void BothStandingGrappling()
         {
-            Console.WriteLine("The two wrestlers are locked up in the center of the ring!");
             Console.WriteLine("What is the player going to do?");
             Console.WriteLine("1. Push opponent into the ropes!");
             Console.WriteLine("2. Try to take opponent down!");
@@ -69,6 +78,7 @@ namespace RassleWar
             else if (playerChoice == 2)
             {
                 Console.WriteLine("The player tries to take the opponent down!");
+                PerformAttacks();
                 BothStandingNeutral();
             }
             else if (playerChoice == 3)
@@ -99,6 +109,89 @@ namespace RassleWar
                     Console.WriteLine("Leaving the arena...");
                     break;
                 }
+            }
+        }
+
+
+        public int GetPlayerAttackPower()
+        {
+            Random random = new Random();
+            int playerAttackPower = random.Next(1, 10);
+            return playerAttackPower;
+        }
+
+        public int GetOpponentAttackPower()
+        {
+            Random random = new Random();
+            int opponentAttackPower = random.Next(1, 10);
+            return opponentAttackPower;
+        }
+
+        public int PerformAttacks()
+        {
+            int playerNumber = GetPlayerAttackPower();
+            int opponentNumber = GetOpponentAttackPower();
+
+            if (playerNumber > opponentNumber)
+            {
+                int opponentAttackDamage = playerNumber - opponentNumber;
+                Console.WriteLine("What a maneuver! The player hits the opponent with a powerful move!");
+                UpdateOpponentHealth(opponentAttackDamage);
+            }
+            else if (opponentNumber > playerNumber)
+            {
+                int playerAttackDamage = opponentNumber - playerNumber;
+                Console.WriteLine("The opponent hits the player with a powerful move! What a maneuver!");
+                UpdatePlayerHealth(playerAttackDamage);
+            }
+            else
+            {
+                Console.WriteLine("It's a stalemate! Like two bulls locking horns!");
+            }
+
+            CheckGameOver();  // Check wrestler health.
+
+
+            return 0;
+        }
+
+        public void DisplayHealth()
+        {
+            Console.WriteLine($"Player Health: {playerHealth}");
+            Console.WriteLine($"Opponent Health: {opponentHealth}");
+        }
+
+        public void UpdatePlayerHealth(int damage)
+        {
+            playerHealth -= damage;
+        }
+
+        public void UpdateOpponentHealth(int damage)
+        {
+            opponentHealth -= damage;
+        }
+
+        public int GetPlayerHealth()
+        {
+            return playerHealth;
+        }
+
+        public int GetOpponentHealth()
+        {
+            return opponentHealth;
+        }
+
+        public void CheckGameOver()
+        {
+            if (playerHealth <= 0)
+            {
+                Console.WriteLine("The player is not able to continue! The opponent wins!");
+                Environment.Exit(0);
+            }
+            else if (opponentHealth <= 0)
+            {
+                Console.WriteLine("The opponent is not able to continue! The player wins!");
+                Environment.Exit(0);
             }
         }
     }

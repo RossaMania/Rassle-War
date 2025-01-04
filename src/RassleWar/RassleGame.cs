@@ -86,7 +86,7 @@ namespace RassleWar
                     Thread.Sleep(1000);
                     Console.Write("2...");
                     Thread.Sleep(1000);
-                    Console.WriteLine("3! He got 'em! The player got the win!");
+                    Console.WriteLine("3! Got 'em! The player wins!");
                     Environment.Exit(0);
                 }
                 else if (playerHealth < 20)
@@ -102,7 +102,7 @@ namespace RassleWar
                     Thread.Sleep(1000);
                     Console.Write("2...");
                     Thread.Sleep(1000);
-                    Console.WriteLine("3! He got 'em! The opponent got the win!");
+                    Console.WriteLine("3! Got 'em! The opponent wins!");
                     Environment.Exit(0);
 
                 }

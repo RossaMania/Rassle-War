@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 
 namespace RassleWar
 {
@@ -38,6 +39,17 @@ namespace RassleWar
             Console.WriteLine("2. Slap opponent!");
             Console.WriteLine("3. Taunt opponent!");
 
+            if (opponentHealth < 20)
+            {
+                Console.WriteLine("4. Go for a winning pinfall!");
+            }
+            else if (playerHealth < 20)
+            {
+                Console.WriteLine("4. Block opponent's pinfall attempt!");
+            }
+
+
+
             var playerMove = Console.ReadLine() ?? string.Empty;
             int playerChoice = int.Parse(playerMove);
 
@@ -57,6 +69,43 @@ namespace RassleWar
             {
                 Console.WriteLine("The player taunts the opponent!");
                 BothStandingNeutral();
+            }
+
+            else if (playerChoice == 4)
+            {
+                if (opponentHealth < 20)
+                {
+                    // Player attempts small package rollup
+                    Console.WriteLine("The two wrestlers lock up in the center of the ring! Oh my!"); 
+                    Console.WriteLine("The player hooks the opponent's leg while applying a front face lock and reaching aross to grab that other far leg!");
+                    Console.WriteLine("The momentum and leverage forces the opponent's shoulders down to the mat!");
+                    Console.WriteLine("It's a small package! We've seen this move end matches in the blink of an eye!");
+                    Console.WriteLine("The referee counts! This could be it!");
+                    Thread.Sleep(1000);
+                    Console.Write("1...");
+                    Thread.Sleep(1000);
+                    Console.Write("2...");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("3! He got 'em! The player got the win!");
+                    Environment.Exit(0);
+                }
+                else if (playerHealth < 20)
+                {
+                    // Opponent attempts small package rollup
+                    Console.WriteLine("The two wrestlers lock up in the center of the ring! Oh my! The opponent sees an opening!");
+                    Console.WriteLine("The opponent hook the player's leg while applying a front face lock and reaching across to grab that other far leg!");
+                    Console.WriteLine("The momentum and leverage forces the player's shoulders down to the mat!");
+                    Console.WriteLine("It's a small package! We've seen this move end matches in the blink of an eye!");
+                    Console.WriteLine("The referee counts! This could be it!");
+                    Thread.Sleep(1000);
+                    Console.Write("1...");
+                    Thread.Sleep(1000);
+                    Console.Write("2...");
+                    Thread.Sleep(1000);
+                    Console.WriteLine("3! He got 'em! The opponent got the win!");
+                    Environment.Exit(0);
+
+                }
             }
         }
 
@@ -146,7 +195,7 @@ namespace RassleWar
             }
             else
             {
-                Console.WriteLine("It's a stalemate! Like two bulls locking horns!");
+                Console.WriteLine("It's a stalemate! It's ike two bulls locking horns!");
             }
 
             CheckGameOver();  // Check wrestler health.
